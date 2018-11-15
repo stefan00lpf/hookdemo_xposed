@@ -12,9 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-#
-#
+
 LOCAL_PATH := $(call my-dir)
+
+# include $(CLEAR_VARS)
+# LOCAL_MODULE    := substrate
+# LOCAL_SRC_FILES := libsubstrate.so
+# include $(PREBUILT_SHARED_LIBRARY)
+
+# include $(CLEAR_VARS)
+# LOCAL_MODULE    := substrate-dvm
+# LOCAL_SRC_FILES := libsubstrate-dvm.so
+# include $(PREBUILT_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := libhookzz
@@ -23,10 +32,11 @@ include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE    := myhook
-LOCAL_LDLIBS	:= -llog
-LOCAL_SRC_FILES := hook.c myHook.c
+LOCAL_LDLIBS	:= -llog -lz -landroid
+LOCAL_SRC_FILES := hook.cpp myHook.cpp
 LOCAL_STATIC_LIBRARIES := libhookzz
-LOCAL_CFLAGS   = -std=c99
+
+# LOCAL_LDLIBS += -L$(LOCAL_PATH) -lsubstrate-dvm -lsubstrate
 
 # 添加ollvm
 # LOCAL_CFLAGS += -mllvm -sub -mllvm -bcf -mllvm -fla

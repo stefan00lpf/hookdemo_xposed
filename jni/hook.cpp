@@ -12,7 +12,7 @@
 
 
 
-uint32_t get_module_base(pid_t pid, const char *module_path) 
+uint32_t hookNative::get_module_base(pid_t pid, const char *module_path) 
 {
     FILE *fp = NULL;
     char *pch = NULL;
@@ -46,7 +46,7 @@ uint32_t get_module_base(pid_t pid, const char *module_path)
     return addr;
 }
 
-const char* get_process_name(pid_t pid) {
+const char* hookNative::get_process_name(pid_t pid) {
     static char buffer[255];
     FILE* f;
     char path[255];
