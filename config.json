@@ -1,0 +1,13 @@
+{
+    "config" :[
+    	{
+    		"packageName":"com.tencent.KiHan", 
+    		"libName" : "libmyhook"
+    	},
+    	{
+    		"packageName":"com.tencent.KiHan", 
+    		"libName" : "libmyhook"
+    	}
+    ]
+    		
+}
