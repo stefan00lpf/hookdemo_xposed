@@ -18,12 +18,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
-        sourceSets {
-            main {
-                jni.srcDirs = ['libs']
-                jniLibs.srcDirs = ['src/main/libs'] //指定引用的lib所在目录
-            }
-        }
+//        sourceSets {
+//            main {
+//                jni.srcDirs = ['libs']
+//                jniLibs.srcDirs = ['src/main/libs'] //指定引用的lib所在目录
+//            }
+//        }
     }
 }
 

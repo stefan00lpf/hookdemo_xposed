@@ -38,7 +38,7 @@ int open_replace(char *pathname, int flags, ...)
     }
 
 
-    LOGI("open: %s", pathname);
+    // LOGI("open: %s", pathname);
     /** read /proc/pid/maps **/
     // if(strstr(pathname, "maps") && strstr(pathname, "/proc"))
     // {
@@ -102,7 +102,16 @@ void _init()
 
     pid_t pid = getpid();
     LOGI("the target pid is %d", pid);
-    LOGI("the target name is %s", hookNative::get_process_name(pid));
+    const char* processName = hookNative::get_process_name(pid);
+    if(processName == NULL)
+    {
+        LOGI("the target name is NULL");
+    }
+    else
+    {
+        LOGI("the target name is %s", processName);
+    }
+    
 
     void* open_target = dlsym(RTLD_DEFAULT, "open");
     if(open_target != NULL)

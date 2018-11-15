@@ -52,7 +52,7 @@ const char* hookNative::get_process_name(pid_t pid) {
     char path[255];
 
     snprintf(path, sizeof(path), "/proc/%d/cmdline", pid);
-
+    LOGE("open %s ", path);
     if ((f = fopen(path, "r")) == NULL) {
         return NULL;
     }
@@ -60,6 +60,8 @@ const char* hookNative::get_process_name(pid_t pid) {
     if (fgets(buffer, sizeof(buffer), f) == NULL) {
         return NULL;
     }
+
+    LOGE("open %s ", buffer);
     fclose(f);
     return buffer;
 }
